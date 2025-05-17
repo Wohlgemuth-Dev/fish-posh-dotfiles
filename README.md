@@ -1,3 +1,5 @@
+[Setup Page](https://Wohlgemuth-Dev.github.io/fish-posh-dotfiles/setup.html)
+
 # LinuxSetup
 
 [Fish Terminal Setup](https://www.pling.com/p/2179556/)  
