@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Terminal Einrichtung</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6; /* Hellgrauer Hintergrund */
+            color: #1a202c; /* Dunkler Text */
+        }
+        h1, h2 {
+            color: #2d3748; /* Dunkelgrau für Überschriften */
+            text-align: center;
+            padding: 20px 0;
+            margin: 0;
+            background-color: #edf2f7; /* Noch hellerer Hintergrund für Überschriftenbereich */
+            border-bottom: 1px solid #e2e8f0;
+        }
+        h2 {
+            font-size: 1.8em;
+            padding: 15px 0 10px 0;
+            text-align: left;
+            margin-left: 20px;
+        }
+        p {
+            color: #4a5568; /* Etwas heller als die Haupttextfarbe */
+            line-height: 1.7;
+            padding: 0 20px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin: 10px 0 20px 0;
+            padding-left: 30px;
+        }
+        ul li, ol li {
+            margin-bottom: 12px;
+            color: #4a5568;
+        }
+        pre {
+            background-color: #edf2f7; /* Sehr heller Grau-Ton für Code-Blöcke */
+            padding: 15px;
+            margin: 20px;
+            overflow-x: auto;
+            border-left: 4px solid #4a5568; /* Dunkelgrauer Akzentstreifen */
+            font-family: monospace;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Dezenter Schatten */
+            position: relative; /* Für den Kopierbutton */
+        }
+        pre code {
+            display: block;
+            line-height: 1.5;
+            color: #2d3748;
+        }
+
+        /* Kopierbutton Styles */
+        pre .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #cbd5e0; /* Ein heller Blau-Ton für den Button */
+            color: #4a5568;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+            opacity: 0.7;
+        }
+        pre .copy-button:hover {
+            background-color: #718096; /* Ein dunklerer Blau-Ton bei Hover */
+            color: #fff;
+            opacity: 1;
+        }
+        pre .copy-button:active {
+            background-color: #4a5568; /* Noch dunkler beim Klicken */
+        }
+
+        a {
+            color: #0078d7;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Feiner Schatten */
+            padding-bottom: 30px;
+            padding-top: 10px;
+        }
+        .step {
+            padding: 30px 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .step:last-child {
+            border-bottom: none;
+        }
+        .step h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+        .important {
+            color: #e53e3e;
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+            padding: 10px;
+            background-color: #f565651a;
+            border-radius: 6px;
+            border: 1px solid #f5656533;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Einrichtung eines großartigen Linux-Terminals</h1>
+        <p>Diese Anleitung führt Sie durch die Anpassung Ihres Ubuntu-Terminals, um es mit Fish Shell und Oh My Posh großartig aussehen zu lassen.</p>
+
+        <div class="step">
+            <h2>Fish Shell installieren</h2>
+            <p>Öffnen Sie Ihr Terminal und führen Sie den folgenden Befehl aus:</p>
+            <pre><code>sudo apt install fish -y</code></pre>
+        </div>
+
+        <div class="step">
+            <h2>Standard-Shell zu Fish Shell ändern</h2>
+            <p>Führen Sie den folgenden Befehl aus, um Fish Shell zu Ihrer Standard-Shell zu machen:</p>
+            <pre><code>chsh -s /usr/bin/fish</code></pre>
+        </div>
+
+        <div class="step">
+            <h2>Fish Shell ausführen</h2>
+            <p>Um Fish Shell zu verwenden, geben Sie einfach Folgendes ein:</p>
+            <pre><code>fish</code></pre>
+        </div>
+
+        <div class="step">
+            <h2>Oh My Posh installieren</h2>
+            <p>Laden Sie Oh My Posh herunter und installieren Sie es:</p>
+            <pre><code>sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+sudo chmod +x /usr/local/bin/oh-my-posh</code></pre>
+        </div>
+
+        <div class="step">
+            <h2>Schriftarten herunterladen und installieren</h2>
+            <p>Erstellen Sie ein Verzeichnis für Schriftarten:</p>
+            <pre><code>mkdir -p $HOME/.local/share/fonts</code></pre>
+            <p>Laden Sie die FiraCode Nerd Font herunter und entpacken Sie sie:</p>
+            <pre><code>wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip -O $HOME/Downloads/firacode.zip
+unzip $HOME/Downloads/firacode.zip -d $HOME/.local/share/fonts</code></pre>
+            <p>Aktualisieren Sie die Schriftartdatenbank:</p>
+            <pre><code>fc-cache -f -v</code></pre>
+            <p>Ändern Sie die Monospace-Textart Ihres Systems in "FiraCode Nerd Font Mono". Sie können dies mit GNOME Tweaks tun. Wenn Sie es nicht installiert haben:</p>
+            <pre><code>sudo apt install gnome-tweaks -y</code></pre>
+        </div>
+
+        <div class="step">
+            <h2>Oh My Posh Theme und Fish Config von GitHub herunterladen</h2>
+            <p>Da Sie ein benutzerdefiniertes Theme und eine benutzerdefinierte Konfiguration verwenden, laden wir diese von Ihrem GitHub-Repository herunter.</p>
+            <p>Erstellen Sie zuerst die notwendigen Verzeichnisse:</p>
+            <pre><code>mkdir -p ~/.poshthemes ~/.config/fish</code></pre>
+            <p>Laden Sie dann die Dateien mit <code>wget</code> herunter. Bitte ersetzen Sie die URLs unten durch die tatsächlichen URLs für Ihre Dateien:</p>
+            <ul>
+                <li>Oh My Posh Theme-Datei: <code>https://github.com/Wohlgemuth-Dev/fish-posh-dotfiles/raw/main/customMontys.omp.json</code></li>
+                <li>Fish Config-Datei: <code>https://github.com/Wohlgemuth-Dev/fish-posh-dotfiles/raw/main/config.fish</code></li>
+            </ul>
+            <p><strong>Mit wget:</strong></p>
+            <pre><code>wget https://github.com/Wohlgemuth-Dev/fish-posh-dotfiles/raw/main/customMontys.omp.json -O ~/.poshthemes/customMontys.omp.json
+wget https://github.com/Wohlgemuth-Dev/fish-posh-dotfiles/raw/main/config.fish -O ~/.config/fish/config.fish</code></pre>
+        </div>
+
+        <div class="step">
+            <h2>Oh My Posh Theme zur Fish Config hinzufügen</h2>
+            <p>Die <code>config.fish</code>-Datei aus Ihrem Repository sollte bereits die Zeile zum Initialisieren von Oh My Posh enthalten. Lassen Sie uns dies jedoch überprüfen.</p>
+            <p>Öffnen Sie Ihre Fish-Konfigurationsdatei:</p>
+            <pre><code>gedit $HOME/.config/fish/config.fish</code></pre>
+            <p>Stellen Sie sicher, dass sie die folgende Zeile (oder eine ähnliche Zeile, die korrekt auf Ihre Theme-Datei verweist) enthält:</p>
+            <pre><code>oh-my-posh init fish --config ~/.poshthemes/customMontys.omp.json | source</code></pre>
+            <p>Wenn sie nicht vorhanden ist, fügen Sie sie hinzu. Wenn sie vorhanden ist, können Sie die Datei schließen.</p>
+        </div>
+
+        <div class="step">
+            <h2>Terminal-Farbschema ändern</h2>
+            <pre><code>bash -c "$(wget -qO- https://git.io/vQgMr)"</code></pre>
+            <p>Geben Sie <code>69</code> ein, um (Everforest Dark Hard) auszuwählen.</p>
+            <p class="important">Wichtig: GNOME Terminal lädt Fish Shell möglicherweise erst als Standard-Shell, nachdem Sie sich ab- und wieder angemeldet haben. Nachdem Sie die Schritte abgeschlossen haben, melden Sie sich von Ihrer aktuellen Sitzung ab und wieder an. Starten Sie dann GNOME Terminal.</p>
+        </div>
+    </div>
+    <script>
+    document.querySelectorAll('pre').forEach(pre => {
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-button';
+        copyButton.textContent = 'Kopieren';
+        pre.appendChild(copyButton);
+
+        copyButton.addEventListener('click', () => {
+            const code = pre.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                copyButton.textContent = 'Kopiert!';
+                setTimeout(() => {
+                    copyButton.textContent = 'Kopieren';
+                }, 2000);
+            }).catch(err => {
+                copyButton.textContent = 'Fehler!';
+                setTimeout(() => {
+                    copyButton.textContent = 'Kopieren';
+                }, 2000);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
