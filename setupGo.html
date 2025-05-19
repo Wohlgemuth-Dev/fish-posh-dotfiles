@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go (Golang) und GoLand unter Ubuntu installieren</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            /* Hellgrauer Hintergrund */
+            color: #1a202c;
+            /* Dunkler Text */
+        }
+
+        h1,
+        h2 {
+            color: #2d3748;
+            /* Dunkelgrau für Überschriften */
+            text-align: center;
+            padding: 20px 0;
+            margin: 0;
+            background-color: #edf2f7;
+            /* Noch hellerer Hintergrund für Überschriftenbereich */
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            padding: 15px 0 10px 0;
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        p {
+            color: #4a5568;
+            /* Etwas heller als die Haupttextfarbe */
+            line-height: 1.7;
+            padding: 0 20px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0 20px 0;
+            padding-left: 30px;
+        }
+
+        ul li,
+        ol li {
+            margin-bottom: 12px;
+            color: #4a5568;
+        }
+
+        pre {
+            background-color: #edf2f7;
+            /* Sehr heller Grau-Ton für Code-Blöcke */
+            padding: 15px;
+            margin: 20px;
+            overflow-x: auto;
+            border-left: 4px solid #4a5568;
+            /* Dunkelgrauer Akzentstreifen */
+            font-family: monospace;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            /* Dezenter Schatten */
+            position: relative;
+            /* Für den Kopierbutton */
+        }
+
+        pre code {
+            display: block;
+            line-height: 1.5;
+            color: #2d3748;
+        }
+
+        /* Kopierbutton Styles */
+        pre .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #cbd5e0;
+            /* Ein heller Blau-Ton für den Button */
+            color: #4a5568;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+            opacity: 0.7;
+        }
+
+        pre .copy-button:hover {
+            background-color: #718096;
+            /* Ein dunklerer Blau-Ton bei Hover */
+            color: #fff;
+            opacity: 1;
+        }
+
+        pre .copy-button:active {
+            background-color: #4a5568;
+            /* Noch dunkler beim Klicken */
+        }
+
+        a {
+            color: #0078d7;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            /* Feiner Schatten */
+            padding-bottom: 30px;
+            padding-top: 10px;
+        }
+
+        .step {
+            padding: 30px 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .important {
+            color: #e53e3e;
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+            padding: 10px;
+            background-color: #f565651a;
+            border-radius: 6px;
+            border: 1px solid #f5656533;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Go (Golang) und GoLand unter Ubuntu installieren</h1>
+        <p>Diese Anleitung führt Sie durch die Installation der Programmiersprache Go (Golang) und der integrierten Entwicklungsumgebung (IDE) GoLand unter Ubuntu.</p>
+
+        <div class="step">
+            <h2>1. Go (Golang) installieren</h2>
+            <p>Es gibt verschiedene Möglichkeiten, Go unter Ubuntu zu installieren. Die empfohlene Methode ist die Verwendung des offiziellen Tarballs.</p>
+            <ul>
+                <li>Besuchen Sie die offizielle Go-Downloadseite: <a href="https://go.dev/dl/">https://go.dev/dl/</a></li>
+                <li>Suchen Sie die neueste stabile Version für Linux (normalerweise eine <code>.tar.gz</code>-Datei).</li>
+                <li>Kopieren Sie die URL des Tarballs.</li>
+                <li>Öffnen Sie Ihr Terminal und laden Sie den Tarball herunter (ersetzen Sie die URL durch die kopierte):
+                    <pre><code>wget https://go.dev/dl/go1.24.3.linux-amd64.tar.gz</code></pre>
+                    <p><strong>Hinweis:</strong> Die Versionsnummer kann sich ändern. Überprüfen Sie die Downloadseite für die aktuelle Version.</p>
+                </li>
+                <li>Extrahieren Sie den Tarball nach <code>/usr/local</code>:
+                    <pre><code>sudo tar -C /usr/local -xzf go1.24.3.linux-amd64.tar.gz</code></pre>
+                    <p>Auch hier gilt: Passen Sie den Dateinamen an die heruntergeladene Version an.</p>
+                </li>
+                <li>Fügen Sie das Go-Binärverzeichnis zu Ihrem <code>PATH</code> hinzu.
+                    <ul>
+                        <li>
+                            <strong>Für Bash/Zsh:</strong> Öffnen Sie Ihre <code>~/.profile</code> oder <code>~/.bashrc</code>-Datei mit einem Texteditor:
+                            <pre><code>nano ~/.profile</code></pre>
+                            oder
+                            <pre><code>nano ~/.bashrc</code></pre>
+                            Fügen Sie am Ende der Datei die folgende Zeile hinzu:
+                            <pre><code>export PATH=$PATH:/usr/local/go/bin</code></pre>
+                        </li>
+                        <li>
+                            <strong>Für Fish Shell:</strong> Öffnen Sie Ihre Fish-Konfigurationsdatei (normalerweise
+                            <code>~/.config/fish/config.fish</code> oder <code>~/.fishrc</code>):
+                            <pre><code>nano ~/.config/fish/config.fish</code></pre>
+                            oder
+                            <pre><code>nano ~/.fishrc</code></pre>
+                            Fügen Sie am Ende der Datei die folgende Zeile hinzu:
+                            <pre><code>set PATH /usr/local/go/bin $PATH</code></pre>
+                            <p>
+                                <strong>Wichtig:</strong>
+                                Fish Shell verwendet Leerzeichen zur Trennung von Pfaden in der <code>PATH</code>-Variable. Stellen Sie sicher, dass Sie keine Doppelpunkte verwenden.
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li>Speichern Sie die Datei und schließen Sie den Editor.</li>
+                <li>Wenden Sie die Änderungen an Ihre aktuelle Shell an:
+                    <ul>
+                        <li>
+                            <strong>Für Bash/Zsh:</strong>
+                            <pre><code>source ~/.profile</code></pre>
+                            oder
+                            <pre><code>source ~/.bashrc</code></pre>
+                        </li>
+                        <li>
+                            <strong>Für Fish Shell:</strong>
+                            <pre><code>source ~/.config/fish/config.fish</code></pre>
+                            oder
+                            <pre><code>source ~/.fishrc</code></pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>Überprüfen Sie die Installation, indem Sie die Go-Version abfragen:
+                    <pre><code>go version</code></pre>
+                    <p>Sie sollten eine Ausgabe ähnlich wie <code>go version go1.22.4 linux/amd64</code> sehen.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>2. GoLand herunterladen und installieren</h2>
+            <p>GoLand ist eine kommerzielle IDE von JetBrains, die speziell für die Go-Entwicklung entwickelt wurde. Sie können eine kostenlose Testversion
+                herunterladen oder eine Lizenz erwerben.</p>
+            <ul>
+                <li>Besuchen Sie die offizielle GoLand-Downloadseite: <a href="https://www.jetbrains.com/go/download/">https://www.jetbrains.com/go/download/</a></li>
+                <li>Klicken Sie auf die Schaltfläche "Download" für die Linux-Version. Dies lädt eine <code>.tar.gz</code>-Datei herunter.</li>
+                <li>Öffnen Sie Ihr Terminal und navigieren Sie zu dem Verzeichnis, in dem die Datei heruntergeladen wurde (normalerweise der Ordner
+                    <code>Downloads</code>):
+                    <pre><code>cd ~/Downloads</code></pre>
+                </li>
+                <li>Extrahieren Sie den Tarball. Ersetzen Sie <code>GoLand-*.tar.gz</code> durch den tatsächlichen Dateinamen:
+                    <pre><code>tar -xzf GoLand-*.tar.gz</code></pre>
+                </li>
+                <li>Navigieren Sie in den extrahierten Ordner (der Name enthält die GoLand-Version):
+                    <pre><code>cd GoLand-*/bin</code></pre>
+                </li>
+                <li>Führen Sie das Installationsskript aus:
+                    <pre><code>./goland.sh</code></pre>
+                </li>
+                <li>Das GoLand-Setup-Fenster wird geöffnet. Folgen Sie den Anweisungen auf dem Bildschirm, um GoLand zu installieren. Sie können wählen,
+                    ob Sie Verknüpfungen erstellen möchten.</li>
+                <li>Nach der Installation können Sie GoLand über das Anwendungsmenü oder über das Terminal starten (wenn Sie beim Setup eine entsprechende
+                    Option gewählt haben).</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>3. GoLand für die Go-Entwicklung konfigurieren</h2>
+            <p>Nach dem Start von GoLand müssen Sie möglicherweise das Go SDK konfigurieren.</p>
+            <ul>
+                <li>Wenn Sie GoLand zum ersten Mal starten, werden Sie möglicherweise aufgefordert, das Go SDK anzugeben.</li>
+                <li>Klicken Sie auf "Configure" oder "Setup SDK".</li>
+                <li>Wählen Sie "+ Add New SDK..." und navigieren Sie zu dem Verzeichnis, in dem Go installiert ist (normalerweise
+                    <code>/usr/local/go</code>).</li>
+                <li>Wählen Sie das Go-Verzeichnis aus und klicken Sie auf "OK".</li>
+                <li>GoLand erkennt nun Ihr Go SDK und ist für die Go-Entwicklung bereit.</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('pre').forEach(pre => {
+            const copyButton = document.createElement('button');
+            copyButton.className = 'copy-button';
+            copyButton.textContent = 'Kopieren';
+            pre.appendChild(copyButton);
+
+            copyButton.addEventListener('click', () => {
+                const code = pre.querySelector('code').textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    copyButton.textContent = 'Kopiert!';
+                    setTimeout(() => {
+                        copyButton.textContent = 'Kopieren';
+                    }, 2000);
+                }).catch(err => {
+                    copyButton.textContent = 'Fehler!';
+                    setTimeout(() => {
+                        copyButton.textContent = 'Kopieren';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
